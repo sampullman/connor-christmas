@@ -1,0 +1,53 @@
+@import './typography.postcss';
+
+@define-mixin button-base {
+  @mixin title 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  height: 48px;
+  border-radius: 24px;
+  transition: background-color 0.2 ease-in-out, box-shadow 0.2 ease-in-out;
+
+  &:disabled,
+  &.disabled {
+    background-color: $color-disabled;
+    color: white;
+    cursor: not-allowed;
+    user-select: none;
+  }
+}
+
+@define-mixin button $color: #000 {
+  @mixin button-base;
+  background-color: $color;
+  color: white;
+
+  &:hover:enabled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  &:focus:enabled {
+    box-shadow: none;
+    background-color: rgba($color, 0.8);
+  }
+}
+
+@define-mixin button-small {
+  font-size: 14px;
+  height: 38px;
+  padding: 3px 40px 0;
+}
+
+@define-mixin button-large {
+  padding: 0 40px;
+}
+
+@define-mixin button-full {
+  width: 100%;
+}

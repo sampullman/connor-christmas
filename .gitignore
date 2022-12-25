@@ -1,0 +1,10 @@
+**/dist
+**/out-tsc
+**/node_modules
+test/out
+lib/test/out
+!/lib/test/out/.gitkeep
+
+.DS_Store
+
+pnpm-lock.yaml
